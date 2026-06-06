@@ -1,0 +1,37 @@
+name = "rsp-workers"
+main = "src/index.ts"
+compatibility_date = "2024-06-14"
+compatibility_flags = ["nodejs_compat"]
+
+# D1 database
+[[d1_databases]]
+binding = "DB"
+database_name = "rsp-db"
+database_id = "YOUR_KV_NAMESPACE_ID"
+
+# R2 bucket (需要先在 Dashboard 启用 R2)
+# [[r2_buckets]]
+# binding = "R2_BUCKET"
+# bucket_name = "rsp-uploads"
+
+# KV namespace
+[[kv_namespaces]]
+binding = "KV"
+id = "YOUR_KV_NAMESPACE_ID"
+
+# 环境变量（生产部署时由 CI/CD 或 Dashboard 设置）
+[vars]
+CORS_ORIGIN = "https://9d6a43cd.rsp-frontend.pages.dev"
+APP_URL = "https://9d6a43cd.rsp-frontend.pages.dev"
+R2_BUCKET_NAME = "rsp-uploads"
+
+# Secret variables (wrangler secret put)
+# STRIPE_SECRET_KEY
+# STRIPE_WEBHOOK_SECRET
+# REPLICATE_API_TOKEN
+# RESEND_API_KEY
+# JWT_SECRET
+# GOOGLE_CLIENT_ID
+# GOOGLE_CLIENT_SECRET
+# CREEM_API_KEY
+# CREEM_WEBHOOK_SECRET
